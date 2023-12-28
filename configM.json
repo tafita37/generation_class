@@ -1,0 +1,83 @@
+[
+    {
+        "langage" : "java",
+        "fileTemplateM" : "javaM.txt",
+		"extension" : "java", 
+		"packageName" : "package",
+		"importPackage" : "import",
+        "types" : [
+            {
+                "packagePresence" : "",
+                "typeName" : "int"
+            },
+            {
+                "packagePresence" : "",
+                "typeName" : "short"
+            },
+            {
+                "packagePresence" : "",
+                "typeName" : "long"
+            },
+            {
+                "packagePresence" : "",
+                "typeName" : "long"
+            },
+            {
+                "packagePresence" : "",
+                "typeName" : "float"
+            },
+            {
+                "packagePresence" : "",
+                "typeName" : "double"
+            },
+            {
+                "packagePresence" : "java.math",
+                "typeName" : "BigDecimal"
+            },
+            {
+                "packagePresence" : "java.math",
+                "typeName" : "BigDecimal"
+            },
+            {
+                "packagePresence" : "",
+                "typeName" : "String"
+            },
+            {
+                "packagePresence" : "",
+                "typeName" : "String"
+            },
+            {
+                "packagePresence" : "",
+                "typeName" : "String"
+            },
+            {
+                "packagePresence" : "",
+                "typeName" : "String"
+            },
+            {
+                "packagePresence" : "",
+                "typeName" : "boolean"
+            },
+            {
+                "packagePresence" : "java.sql",
+                "typeName" : "Date"
+            },
+            {
+                "packagePresence" : "java.sql",
+                "typeName" : "Time"
+            },
+            {
+                "packagePresence" : "java.sql",
+                "typeName" : "Timestamp"
+            },
+            {
+                "packagePresence" : "java.sql",
+                "typeName" : "Blob"
+            },
+            {
+                "packagePresence" : "java.sql",
+                "typeName" : "Clob"
+            }
+        ]
+    }
+]
