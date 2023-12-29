@@ -1,0 +1,51 @@
+Classes :
+	- Types :
+		- String name
+		- String package
+
+		public String getCompleteNameWithPackage()
+
+	- ClassMapping :
+		- String packageName
+		- String importPackage
+		- String constructor
+		- HashMap<int, Type> listeType
+
+		public Type[] getAllType()
+		public HashMap<String, String> getListeWriteBeforeEnd
+
+	- Generator :
+		- String langage
+		- String base
+		- String user
+		- String mdp
+		- String database
+		- String tableName
+		- String package
+		- String className
+		- int mappingOuController
+		- ArrayList<String> listImport
+
+		public ResultSetMetaData getMetadata(Connection con)
+		public ClassMapping getCorrespondingClassMapping()
+		public void addListImportType(Connection con)
+		public void writeMappingClass(Connection con)
+
+Configuration :
+	- configM.json :
+		- langage
+		- fileTemplateM
+		- extension
+		- packageName
+		- importPackage
+		- constructor
+		- types : [{names : package :}]
+
+	- configC.json :
+		- langage 
+		- fileTemplateC
+		- extension
+		- packageName
+		- importPackage
+		- controllerAnnotation
+		- methodAnnotation

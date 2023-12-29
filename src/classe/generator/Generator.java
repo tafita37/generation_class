@@ -16,15 +16,15 @@ import classe.Mapping;
 import types.TypeVariable;
 
 public class Generator {
-    String langage;
-    String base;
-    String user;
-    String mdp;
-    String database;
-    String tableName;
-    String packageName;
-    String className;
-    int mappingOuController;
+    String langage="java";
+    String base="Postgre";
+    String user="postgres";
+    String mdp="AnaTaf37";
+    String database="baovola_s5";
+    String tableName="bouquet";
+    String packageName="bouquet";
+    String className="Bouquet";
+    int mappingOuController=1;
     ArrayList<String> listImport;
     public Generator() {
     }
@@ -127,7 +127,7 @@ public class Generator {
                     listeTypes.put(listeSQLTypes[j], new TypeVariable(packagePresence, typeName));
                     j++;
                 }
-                result.put(langage, new Mapping(fileTemplateM, extension, packageName, importPackage, listeTypes));
+                result.put(langage.trim(), new Mapping(fileTemplateM, extension, packageName, importPackage, listeTypes));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -148,10 +148,6 @@ public class Generator {
     }
 
     public ResultSetMetaData getMetadata(Connection con) {
-        return null;
-    }
-
-    public Mapping getCorrespondingClassMapping() {
         return null;
     }
 

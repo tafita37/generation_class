@@ -1,5 +1,10 @@
 package classe;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import types.TypeVariable;
@@ -44,7 +49,31 @@ public class Mapping {
     }
 
     public HashMap<String, String> getListeWriteBeforeEnd() {
-        return null;
+        HashMap<String, String> result=new HashMap<String, String>();
+        try {
+            BufferedReader lecteur = new BufferedReader(new FileReader(new File("templateM/"+this.getFileTemplateM())));
+            String ligne;
+            while ((ligne = lecteur.readLine()) != null) {
+                if(ligne.length()!=0) {
+                    if(ligne.indexOf("?")!=-1) {
+                        String deb=ligne.substring(0, ligne.indexOf("?"));
+                        if(deb.trim().compareToIgnoreCase("packageName")==0) {
+                            result.put(this.getPackageName(), null);
+                        }
+                        if(deb.trim().compareToIgnoreCase("importPackage")==0) {
+                            result.put(this.getImportPackage(), null);
+                        }
+                    } else {
+                        result.put(ligne.trim(), null);
+                    }
+                }
+            }
+            lecteur.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
     public String getExtension() {
         return extension;

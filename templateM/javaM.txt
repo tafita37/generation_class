@@ -1,0 +1,7 @@
+packageName ?;
+
+importPackage ?;
+
+public class ? {
+    typeName ?;
+}
