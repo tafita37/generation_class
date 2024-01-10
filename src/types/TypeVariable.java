@@ -5,6 +5,15 @@ import java.sql.Types;
 public class TypeVariable {
     String packageName;
     String typeName;
+    String value;
+    int ordre;
+
+    public TypeVariable(String packageName, String typeName, String value, int ordre) {
+        this.packageName = packageName;
+        this.typeName = typeName;
+        this.value = value;
+        this.ordre=ordre;
+    }
     public TypeVariable(String packageName, String typeName) {
         this.packageName = packageName;
         this.typeName = typeName;
@@ -25,7 +34,14 @@ public class TypeVariable {
     }
 
     public String getImportName() {
-        return this.getPackageName()+"."+this.getTypeName();
+        if(this.getPackageName()==null||this.getPackageName().length()==0) {
+            return "";
+        }
+        return this.getPackageName()+"."+this.getTypeName()+";";
+    }
+
+    public String getFieldDeclaration() {
+        return this.getTypeName()+" "+this.getValue()+";";
     }
 
     public static int[] getIntListeTypeSql() {
@@ -49,5 +65,30 @@ public class TypeVariable {
         result[16]=Types.BLOB;
         result[17]=Types.CLOB;
         return result;
+    }
+    public String getValue() {
+        return value;
+    }
+    public void setValue(String value) {
+        this.value = value;
+    }
+    public int getOrdre() {
+        return ordre;
+    }
+    public void setOrdre(int ordre) {
+        this.ordre = ordre;
+    }
+
+    public static TypeVariable[] trierParOrdre(TypeVariable[] listeTypeVariable) {
+        for(int i=0; i<listeTypeVariable.length-1; i++) {
+            for(int j=i+1; j<listeTypeVariable.length; j++) {
+                if(listeTypeVariable[i]!=null&&listeTypeVariable[j]!=null&&listeTypeVariable[i].getOrdre()>listeTypeVariable[j].getOrdre()) {
+                    TypeVariable typeVariable=listeTypeVariable[i];
+                    listeTypeVariable[i]=listeTypeVariable[j];
+                    listeTypeVariable[j]=typeVariable;
+                }
+            }
+        }
+        return listeTypeVariable;
     }
 }
